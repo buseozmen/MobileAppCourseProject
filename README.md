@@ -10,17 +10,6 @@ Instructor: Dr. Lecturer Fehim KÖYLÜ
 Student: 1030520910 Fatma Buse Özmen
 ```
 
-
-
-### **_TR_**
-
-```
-Üniversite: Erciyes Üniversitesi
-Bölüm: Bilgisayar Mühendisliği 
-Ders: Mobil Uygulama Geliştirme 
-Öğretim Üyesi: Dr. Öğr. Üyesi Fehim KÖYLÜ
-Öğrenci: 1030520910 Fatma Buse Özmen
-```
 ## Meal App Project
 - Meal App is a mobile application where users can find and view various recipes.
 
@@ -41,6 +30,17 @@ Ders: Mobil Uygulama Geliştirme
 ### API Used
 - [TheMealDB API](https://www.themealdb.com/api.php)
 - Link: [https://www.themealdb.com/api.php](https://www.themealdb.com/api.php)
+
+### **_TR_**
+
+```
+Üniversite: Erciyes Üniversitesi
+Bölüm: Bilgisayar Mühendisliği 
+Ders: Mobil Uygulama Geliştirme 
+Öğretim Üyesi: Dr. Öğr. Üyesi Fehim KÖYLÜ
+Öğrenci: 1030520910 Fatma Buse Özmen
+```
+
 
 
 
