@@ -29,7 +29,6 @@ Student: 1030520910 Fatma Buse Özmen
 
 ### API Used
 - [TheMealDB API](https://www.themealdb.com/api.php)
-- Link: [https://www.themealdb.com/api.php](https://www.themealdb.com/api.php)
 
 ### **_TR_**
 
@@ -40,9 +39,6 @@ Ders: Mobil Uygulama Geliştirme
 Öğretim Üyesi: Dr. Öğr. Üyesi Fehim KÖYLÜ
 Öğrenci: 1030520910 Fatma Buse Özmen
 ```
-
-
-
 
 ## Meal App Project
 - Meal App, kullanıcıların çeşitli yemek tariflerini bulabilecekleri ve görüntüleyebilecekleri bir mobil uygulamadır.
@@ -63,7 +59,6 @@ Ders: Mobil Uygulama Geliştirme
 
 ### Kullanılan API
 - [TheMealDB API](https://www.themealdb.com/api.php)
-- Link: [https://www.themealdb.com/api.php](https://www.themealdb.com/api.php)
 
 
 
