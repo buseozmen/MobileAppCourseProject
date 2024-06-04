@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'dart:convert';
 
 class MealDetailScreen extends StatefulWidget {
   final String mealId;
 
-  MealDetailScreen({required this.mealId}); // Yemek ID'sini alan bir constructor
+  MealDetailScreen(
+      {required this.mealId}); // Yemek ID'sini alan bir constructor
 
   @override
   _MealDetailScreenState createState() => _MealDetailScreenState();
 }
 
 class _MealDetailScreenState extends State<MealDetailScreen> {
-  Map<String, dynamic>? mealDetails; // Yemek detaylarını saklayan bir değişken (nullable)
+  Map<String, dynamic>?
+      mealDetails; // Yemek detaylarını saklayan bir değişken (nullable)
 
   // Belirli bir yemek ID'sine sahip yemeğin detaylarını API'den çeken metot
   Future<Map<String, dynamic>> fetchMealDetails() async {
-    final response = await http.get(Uri.parse('https://www.themealdb.com/api/json/v1/1/lookup.php?i=${widget.mealId}'));
-    final data = jsonDecode(response.body);
-    return data['meals'][0];
+    try {
+      Response response = await Dio().get(
+          'https://www.themealdb.com/api/json/v1/1/lookup.php?i=${widget.mealId}');
+      return response.data['meals'][0];
+    } catch (error, stacktrace) {
+      print("Exception occurred: $error stackTrace: $stacktrace");
+      return {}; // Hata durumunda boş bir harita döndür
+    }
   }
 
   @override
@@ -48,7 +55,8 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
         backgroundColor: Color(0xFFFF00FF), // App bar arka plan rengi
       ),
       body: mealDetails == null // Eğer yemek detayları henüz alınmadıysa
-          ? Center(child: CircularProgressIndicator()) // Yükleme göstergesi göster
+          ? Center(
+              child: CircularProgressIndicator()) // Yükleme göstergesi göster
           : SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +64,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                   Center(
                     child: Image.network(
                       mealDetails!['strMealThumb'], // Yemek resmi URL'si
-                     
+
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -66,7 +74,11 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                       alignment: Alignment.center,
                       child: SelectableText(
                         mealDetails!['strMeal'], // Yemek adı
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -81,7 +93,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                             text: 'Category: ', // Kategori
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          TextSpan(text: mealDetails!['strCategory']), // Kategori adı
+                          TextSpan(
+                              text:
+                                  mealDetails!['strCategory']), // Kategori adı
                           TextSpan(
                             text: '\n\nArea: ', // Alan
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -91,8 +105,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                             text: '\n\nInstructions: ', // Talimatlar
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          TextSpan(text: mealDetails!['strInstructions']), // Talimatlar
-                          
+                          TextSpan(
+                              text: mealDetails![
+                                  'strInstructions']), // Talimatlar
                         ],
                       ),
                     ),
