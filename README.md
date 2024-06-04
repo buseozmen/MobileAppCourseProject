@@ -23,7 +23,7 @@ Student: 1030520910 Fatma Buse Özmen
 ### Technologies Used
 - Flutter Framework
 - Dart Programming Language
-- HTTP Package
+- RESTful API (Dio Package)
 - JSON Format
 - Material Design
 
@@ -53,7 +53,7 @@ Ders: Mobil Uygulama Geliştirme
 ### Kullanılan Teknolojiler
 - Flutter Framework
 - Dart Programlama Dili
-- HTTP Paketi
+- RESTful API (Dio Paketi)
 - JSON formatı
 - Material Design
 
